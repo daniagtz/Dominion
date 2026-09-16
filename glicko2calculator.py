@@ -8,19 +8,19 @@ A streamlit web app used to calculate glicko2 rating between two players.
 __version__ = '1.4.1'
 __author__ = 'fsmosca'
 __script_name__ = 'glicko2calculator'
-__about__ = 'A streamlit web app used to calculate glicko2 rating between two players.'
+__about__ = 'A'
 
 
 import streamlit as st
 from glicko2 import Glicko2
 
 
-APP_NAME = 'Glicko v2 Rating Calculator'
+APP_NAME = 'Calculadora de rating de Gliko-2'
 APP_LINK = 'https://github.com/fsmosca/glicko2calculator'
 
 
 st.set_page_config(
-    page_title="Glicko v2 Rating Calculator",
+    page_title="Calculadora de rating de Gliko-2",
     layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
@@ -101,13 +101,11 @@ def rating_update(p, num):
 
 def main():
     """App main entry point."""
-    st.header('Glicko v2 Rating Calculator')
-
-    st.markdown(__about__)
+    st.header('Calculadora de rating de Gliko-2')
 
     calculation_tab, credits_tab = st.tabs(
-        [':chart: CALCULATION',
-         ':heavy_dollar_sign: CREDITS'])
+        [':chart: CÁLCULO',
+         ':heavy_dollar_sign: CRÉDITOS'])
 
     with calculation_tab:
         col1, col2 = st.columns(2)
