@@ -112,16 +112,6 @@ def main():
          ':hammer_and_wrench: SETTINGS', ':heavy_dollar_sign: CREDITS'])
 
     with settings_tab:
-        st.slider(
-            label='Input TAU',
-            min_value=0.1,
-            max_value=3.0,
-            key='tau',
-            help='''Smaller values prevent the volatility measures
-            from changing by large amounts which in turn prevents enormous
-            changes in ratings based on very improbable results.'''
-        )
-
         st.selectbox(
             'Confidence Level',
             options=['90%', '95%', '99%'],
