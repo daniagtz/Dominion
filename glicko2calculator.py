@@ -43,15 +43,13 @@ st.markdown("""
 
 
 Z_SCORES = {'90%': 1.645, '95%': 1.96, '99%': 2.576}
-
+st.session_state.tau = 0.4
 
 if 'vola1' not in st.session_state:
     st.session_state.vola1 = 0.06
 if 'vola2' not in st.session_state:
     st.session_state.vola2 = 0.06
 
-if 'tau' not in st.session_state:
-    st.session_state.tau = 0.4
 if 'rating1' not in st.session_state:
     st.session_state.rating1 = 1500
 if 'rating2' not in st.session_state:
