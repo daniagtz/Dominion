@@ -107,7 +107,7 @@ def main():
 
     calculation_tab, credits_tab = st.tabs(
         [':chart: CALCULATION',
-         ':hammer_and_wrench: SETTINGS', ':heavy_dollar_sign: CREDITS'])
+         ':heavy_dollar_sign: CREDITS'])
 
     with calculation_tab:
         col1, col2 = st.columns(2)
