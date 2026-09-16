@@ -41,8 +41,6 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-
-Z_SCORES = {'90%': 1.645, '95%': 1.96, '99%': 2.576}
 st.session_state.tau = 0.4
 
 if 'vola1' not in st.session_state:
@@ -89,8 +87,8 @@ def data_input(num):
 
 def rating_update(p, num):
     """Shows rating calculation results."""
-    lower_rating = round(p.mu - Z_SCORES[st.session_state.confidence_level_k]*p.phi)
-    upper_rating = round(p.mu + Z_SCORES[st.session_state.confidence_level_k]*p.phi)
+    lower_rating = round(p.mu - 1.96*p.phi)
+    upper_rating = round(p.mu + 1.96*p.phi)
 
     st.markdown(f'''
     ##### New Rating: :green[{round(p.mu)}]
@@ -107,17 +105,9 @@ def main():
 
     st.markdown(__about__)
 
-    calculation_tab, settings_tab, credits_tab = st.tabs(
+    calculation_tab, credits_tab = st.tabs(
         [':chart: CALCULATION',
          ':hammer_and_wrench: SETTINGS', ':heavy_dollar_sign: CREDITS'])
-
-    with settings_tab:
-        st.selectbox(
-            'Confidence Level',
-            options=['90%', '95%', '99%'],
-            index=1,
-            key='confidence_level_k'
-        )
 
     with calculation_tab:
         col1, col2 = st.columns(2)
@@ -154,20 +144,6 @@ def main():
         for i, col in enumerate(st.columns(len(p))):
             with col:
                 rating_update(p[i], i+1)
-
-        with st.expander('**Definitions**', expanded=False):
-            st.markdown('''**Volatility**<br>
-The volatility measure indicates the degree of expected fluctuation in a
-player's rating. The volatility measure is high when a player has erratic
-performances (e.g., when the player has had exceptionally strong results
-after a period of stability), and the volatility measure is low when the
-player performs at a consistent level.
-
-**Rating deviation**<br>
-RD is a numerical value that represents the confidence level in a player's
-rating. A lower RD indicates higher confidence in the rating, meaning the
-rating is more accurate. A higher RD indicates less confidence in the rating,
-meaning the rating is more volatile or uncertain.''', unsafe_allow_html=True)
 
     with credits_tab:
         st.markdown('''
