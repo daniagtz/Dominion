@@ -116,7 +116,7 @@ def main():
 
         result = st.selectbox(
             label=':triangular_flag_on_post: Select result',
-            options=['#1 wins', '#2 wins', 'draw'],
+            options=['#1 wins', '#2 wins', 'empate'],
         )
 
         env = Glicko2(tau=float(st.session_state.tau))
