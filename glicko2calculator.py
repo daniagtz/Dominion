@@ -51,7 +51,7 @@ if 'vola2' not in st.session_state:
     st.session_state.vola2 = 0.06
 
 if 'tau' not in st.session_state:
-    st.session_state.tau = 0.5
+    st.session_state.tau = 0.4
 if 'rating1' not in st.session_state:
     st.session_state.rating1 = 1500
 if 'rating2' not in st.session_state:
